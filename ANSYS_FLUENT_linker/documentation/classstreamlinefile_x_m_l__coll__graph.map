@@ -1,7 +1,0 @@
-<map id="streamlinefileXML" name="streamlinefileXML">
-<area shape="rect" id="node2" href="$class_x_m_lfile.html" title="{XMLfile\n|# path\l|# Create_XML_Node()\l# check_Tag()\l# Error_Check()\l}" alt="" coords="109,373,257,479"/>
-<area shape="rect" id="node3" href="$classi__o.html" title="{i_o\n||+ i_o()\l+ log_entry()\l+ error_entry_not_blocking()\l+ error_entry_blocking()\l}" alt="" coords="5,57,189,178"/>
-<area shape="rect" id="node4" href="$classtinyxml2_1_1_x_m_l_document.html" title="{tinyxml2::XMLDocument\n||+ XMLDocument()\l+ ~XMLDocument()\l+ ToDocument()\l+ ToDocument()\l+ Parse()\l+ LoadFile()\l+ LoadFile()\l+ SaveFile()\l+ SaveFile()\l+ ProcessEntities()\land 24 more...\l}" alt="" coords="213,5,376,229"/>
-<area shape="rect" id="node5" href="$classtinyxml2_1_1_x_m_l_node.html" title="{tinyxml2::XMLNode\n||+ GetDocument()\l+ GetDocument()\l+ ToElement()\l+ ToText()\l+ ToComment()\l+ ToDocument()\l+ ToDeclaration()\l+ ToUnknown()\l+ ToElement()\l+ ToText()\land 34 more...\l# XMLNode()\l# ~XMLNode()\l# ParseDeep()\l}" alt="" coords="323,292,458,560"/>
-<area shape="rect" id="node6" href="$classtinyxml2_1_1_str_pair.html" title="{tinyxml2::StrPair\n||+ StrPair()\l+ ~StrPair()\l+ Set()\l+ GetStr()\l+ Empty()\l+ SetInternedStr()\l+ SetStr()\l+ ParseText()\l+ ParseName()\l+ TransferTo()\l}" alt="" coords="400,13,525,222"/>
-</map>

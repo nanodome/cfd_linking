@@ -1,7 +1,0 @@
-<map id="streamlinefileJSON::parse" name="streamlinefileJSON::parse">
-<area shape="rect" id="node2" href="$class_j_s_o_n.html#a7f3d733e38c15aaeee7223831f9739a3" title="JSON::Parse" alt="" coords="211,5,310,32"/>
-<area shape="rect" id="node3" href="$class_j_s_o_n_value.html#aa5fb1fa3ddad3434f6a29ae8a6576850" title="JSONValue::AsObject" alt="" coords="185,56,336,83"/>
-<area shape="rect" id="node4" href="$class_j_s_o_nfile.html#a098b15918eb9bd3eefdac58ae269fa0e" title="JSONfile::read_JSON\l_value" alt="" coords="187,107,334,149"/>
-<area shape="rect" id="node6" href="$class_j_s_o_nfile.html#a4016fb5a1f3c278331a9706f424a0b7d" title="JSONfile::read_JSON\l_array" alt="" coords="187,173,334,214"/>
-<area shape="rect" id="node5" href="$classi__o.html#a6e9d79c842c0d3bf9120e0b15b55c7f2" title="i_o::error_entry_blocking" alt="" coords="384,148,548,175"/>
-</map>
