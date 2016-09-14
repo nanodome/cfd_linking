@@ -1,0 +1,14 @@
+DEPENDENCIES = \
+$(BASECLOUDS)/monteCarloCloud/monteCarloCloud.dep\
+$(KINEMATICPARCEL)/defineBasicMonteCarloParcel.dep\
+$(KINEMATICPARCEL)/makeBasicMonteCarloParcelSubmodels.dep\
+submodels/MonteCarlo/PatchInteractionModel/LocalInteraction/patchInteractionData.dep\
+submodels/MonteCarlo/PatchInteractionModel/LocalInteraction/patchInteractionDataList.dep\
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionData.dep\
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionDataIO.dep\
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionDataIOList.dep\
+phaseProperties/phaseProperties/phaseProperties.dep\
+phaseProperties/phaseProperties/phasePropertiesIO.dep\
+phaseProperties/phasePropertiesList/phasePropertiesList.dep\
+clouds/Templates/MonteCarloCloud/cloudSolution/cloudSolution.dep\
+submodels/CloudFunctionObjects/NanoDomeOutput/tinyxml2.dep

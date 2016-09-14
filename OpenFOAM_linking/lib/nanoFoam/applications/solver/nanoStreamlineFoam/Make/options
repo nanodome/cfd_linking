@@ -1,0 +1,28 @@
+EXE_INC = \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/turbulenceModels/compressible/turbulenceModel \
+    -I$(LIB_SRC)/lagrangian/basic/lnInclude \
+    -I$(LIB_NANO_SRC)/lagrangian/monteCarlo13_var/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/cfdTools \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/sampling/lnInclude \
+    -I$(LIB_SRC)/regionModels/regionModel/lnInclude \
+    -I$(LIB_SRC)/regionModels/surfaceFilmModels/lnInclude \
+    -I$(LIB_SRC)/fvOptions/lnInclude
+
+EXE_LIBS = \
+    -lfluidThermophysicalModels \
+    -lspecie \
+    -llagrangian \
+    -L$(FOAM_USER_LIBBIN) \
+    -llagrangianMonteCarlo13_var \
+    -lcompressibleTurbulenceModel \
+    -lcompressibleRASModels \
+    -lcompressibleLESModels \
+    -lfiniteVolume \
+    -lregionModels \
+    -lsurfaceFilmModels \
+    -lmeshTools \
+    -lsampling \
+    -lfvOptions

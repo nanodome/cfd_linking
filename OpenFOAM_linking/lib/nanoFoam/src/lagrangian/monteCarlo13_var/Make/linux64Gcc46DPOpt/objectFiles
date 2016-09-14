@@ -1,0 +1,14 @@
+OBJECTS = \
+$(OBJECTS_DIR)/monteCarloCloud.o\
+$(OBJECTS_DIR)/defineBasicMonteCarloParcel.o\
+$(OBJECTS_DIR)/makeBasicMonteCarloParcelSubmodels.o\
+$(OBJECTS_DIR)/patchInteractionData.o\
+$(OBJECTS_DIR)/patchInteractionDataList.o\
+$(OBJECTS_DIR)/monteCarloParcelInjectionData.o\
+$(OBJECTS_DIR)/monteCarloParcelInjectionDataIO.o\
+$(OBJECTS_DIR)/monteCarloParcelInjectionDataIOList.o\
+$(OBJECTS_DIR)/phaseProperties.o\
+$(OBJECTS_DIR)/phasePropertiesIO.o\
+$(OBJECTS_DIR)/phasePropertiesList.o\
+$(OBJECTS_DIR)/cloudSolution.o\
+$(OBJECTS_DIR)/tinyxml2.o

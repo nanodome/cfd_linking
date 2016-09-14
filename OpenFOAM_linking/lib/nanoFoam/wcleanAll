@@ -1,0 +1,7 @@
+#!/bin/bash
+
+wclean libso ./src/lagrangian/monteCarlo13_var
+wclean ./applications/solver/nanoStreamlineFoam
+wclean ./applications/solver/rhoNanoFlowFoam
+wclean ./applications/solver/rhoNanoFlowDyMFoam
+wclean ./applications/solver/rhoNanoNonreactiveFoamTP

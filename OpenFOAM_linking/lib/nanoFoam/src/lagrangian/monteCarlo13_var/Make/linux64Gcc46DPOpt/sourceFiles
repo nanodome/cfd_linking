@@ -1,0 +1,14 @@
+SOURCE = \
+$(BASECLOUDS)/monteCarloCloud/monteCarloCloud.C\
+$(KINEMATICPARCEL)/defineBasicMonteCarloParcel.C\
+$(KINEMATICPARCEL)/makeBasicMonteCarloParcelSubmodels.C\
+submodels/MonteCarlo/PatchInteractionModel/LocalInteraction/patchInteractionData.C\
+submodels/MonteCarlo/PatchInteractionModel/LocalInteraction/patchInteractionDataList.C\
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionData.C\
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionDataIO.C\
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionDataIOList.C\
+phaseProperties/phaseProperties/phaseProperties.C\
+phaseProperties/phaseProperties/phasePropertiesIO.C\
+phaseProperties/phasePropertiesList/phasePropertiesList.C\
+clouds/Templates/MonteCarloCloud/cloudSolution/cloudSolution.C\
+submodels/CloudFunctionObjects/NanoDomeOutput/tinyxml2.C

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -x
+
+wmake libso ./src/lagrangian/monteCarlo13_var 
+wmake ./applications/solver/nanoStreamlineFoam
+

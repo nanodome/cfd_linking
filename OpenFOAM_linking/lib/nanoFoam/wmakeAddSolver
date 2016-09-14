@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -x
+
+wmake ./applications/solver/rhoNanoFlowFoam
+wmake ./applications/solver/rhoNanoFlowDyMFoam
+wmake ./applications/solver/rhoNanoNonreactiveFoamTP

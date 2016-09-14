@@ -1,0 +1,59 @@
+PARCELS=parcels
+BASEPARCELS=$(PARCELS)/baseClasses
+DERIVEDPARCELS=$(PARCELS)/derived
+
+CLOUDS=clouds
+BASECLOUDS=$(CLOUDS)/baseClasses
+DERIVEDCLOUDS=$(CLOUDS)/derived
+
+
+/* Cloud base classes */
+$(BASECLOUDS)/monteCarloCloud/monteCarloCloud.C
+$(BASECLOUDS)/streamCloud/streamCloud.C
+
+/* monteCarlo parcel sub-models */
+MCPARCEL=$(DERIVEDPARCELS)/basicMonteCarloParcel
+$(MCPARCEL)/defineBasicMonteCarloParcel.C
+$(MCPARCEL)/makeBasicMonteCarloParcelSubmodels.C
+
+/* stream parcel sub-models */
+STREAMPARCEL=$(DERIVEDPARCELS)/basicStreamParcel
+$(STREAMPARCEL)/defineBasicStreamParcel.C
+$(STREAMPARCEL)/makeBasicStreamParcelSubmodels.C
+
+/* bolt-on models */
+/* Radiation not supported atm */
+/*
+RADIATION=submodels/addOns/radiation
+$(RADIATION)/absorptionEmission/cloudAbsorptionEmission/cloudAbsorptionEmission.C
+$(RADIATION)/scatter/cloudScatter/cloudScatter.C
+*/
+
+submodels/MonteCarlo/PatchInteractionModel/LocalInteraction/patchInteractionData.C
+submodels/MonteCarlo/PatchInteractionModel/LocalInteraction/patchInteractionDataList.C
+
+KINEMATICINJECTION=submodels/MonteCarlo/InjectionModel
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionData.C
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionDataIO.C
+$(KINEMATICINJECTION)/MonteCarloLookupTableInjection/monteCarloParcelInjectionDataIOList.C
+$(KINEMATICINJECTION)/PatchInjection/patchInjectionBase.C
+
+STREAMINJECTION=submodels/Stream/InjectionModel
+$(STREAMINJECTION)/StreamLookupTableInjection/streamParcelInjectionData.C
+$(STREAMINJECTION)/StreamLookupTableInjection/streamParcelInjectionDataIO.C
+$(STREAMINJECTION)/StreamLookupTableInjection/streamParcelInjectionDataIOList.C
+
+/* integration schemes */
+IntegrationScheme/makeIntegrationSchemes.C
+
+/* phase properties */
+phaseProperties/phaseProperties/phaseProperties.C
+phaseProperties/phaseProperties/phasePropertiesIO.C
+phaseProperties/phasePropertiesList/phasePropertiesList.C
+
+/* Additional helper classes */
+clouds/Templates/MonteCarloCloud/cloudSolution/cloudSolution.C
+submodels/CloudFunctionObjects/NanoDomeOutput/tinyxml2.C
+/* clouds/Templates/StreamCloud/XMLSampling/XMLSampling.C */
+
+LIB = $(FOAM_USER_LIBBIN)/liblagrangianMonteCarlo13_var
