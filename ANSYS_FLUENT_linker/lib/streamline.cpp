@@ -1,5 +1,5 @@
 /*
-Original code by H2020 - NanoDome European Project (www.nanodome.eu, emanuele.ghedini@unibo.it)
+Original code by H2020 - NanoDome European Project (www.nanodome.eu, https://github.com/nanodome/cfd_linking.git)
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any
