@@ -17,7 +17,7 @@ License
     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
     FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
     for more details.
-// 
+ 
     You should have received a copy of the GNU General Public License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -48,7 +48,6 @@ SourceFiles
 #ifndef StreamCloud_H
 #define StreamCloud_H
 
-//#include "MonteCarloCloud.H"
 #include "streamCloud.H"
 
 #include "XMLSampling.H"
@@ -104,99 +103,13 @@ private:
 protected:
 
     // Protected data
-
-        //- References to the mesh and time databases
-        const fvMesh& mesh_;
-
-        //- Dictionary of particle properties
-        IOdictionary particleProperties_;
-
-        //- Dictionary of output properties
-        IOdictionary outputProperties_;
-
-        //- Solution properties
-        cloudSolution solution_;
-
-        //- Parcel constant properties
-        typename parcelType::constantProperties constProps_;
-
-        //- Sub-models dictionary
-        const dictionary subModelProperties_;
-
-        //- Random number generator - used by some injection routines
-        cachedRandom rndGen_;
-
-        //- Cell length scale
-        scalarField cellLengthScale_;
-
-
-        // References to the carrier gas fields
-
-            //- Density [kg/m3]
-            const volScalarField& rho_;
-
-            //- Velocity [m/s]
-            const volVectorField& U_;
-
-            //- Dynamic viscosity [Pa.s]
-            const volScalarField& mu_;
-
-            //const volScalarField& Mf_;
-
-	    //- added by Patrick
-	    const volScalarField& T_;
-	    const volScalarField& concSource_;
-	    const volVectorField& gradT_;
-
-        // Environmental properties
-	    
-            //- Gravity
-            const dimensionedVector& g_;
-
-            //- Averaged ambient domain pressure
-            scalar pAmbient_;
-
-
 	//- Hard coded sampling object for StreamCloud object
         sampleType xmlSampler_;
-
-
-        // References to the cloud sub-models
-
-
-        // Sources
-
-            //- Momentum
-            autoPtr<DimensionedField<vector, volMesh> > UTrans_;
-           //- Temperatur  
-            autoPtr<DimensionedField<scalar, volMesh> > TTrans_;
-           //- Partikelanzahl	    
-            autoPtr<DimensionedField<scalar, volMesh> > nParticleTrans_;	    
-            autoPtr<DimensionedField<scalar, volMesh> > rhopTrans_;
-
-  
-
-
-            //- Coefficient for carrier phase U equation
-            autoPtr<DimensionedField<scalar, volMesh> > UCoeff_;
-
 
         // Initialisation
 
             //- Set cloud sub-models
             void setModels();
-
-
-        // Cloud evolution functions
-
-
-            //- Evolve the cloud
-            template<class TrackData>
-            void evolveCloud(TrackData& td);
-
-            //- Reset state of cloud
-            void cloudReset(StreamCloud<CloudType>& c);
-
 
 public:
 
@@ -261,187 +174,8 @@ public:
             //- Return a reference to the cloud copy
             inline const StreamCloud& cloudCopy() const;
 
-
-            // References to the mesh and databases
-
-                //- Return reference to the mesh
-                inline const fvMesh& mesh() const;
-
-                //- Return particle properties dictionary
-                inline const IOdictionary& particleProperties() const;
-
-                //- Return output properties dictionary
-                inline const IOdictionary& outputProperties() const;
-
-                //- Return non-const access to the output properties dictionary
-                inline IOdictionary& outputProperties();
-
-                //- Return const access to the solution properties
-                inline const cloudSolution& solution() const;
-
-                //- Return access to the solution properties
-                inline cloudSolution& solution();
-
-                //- Return the constant properties
-                inline const typename parcelType::constantProperties&
-                    constProps() const;
-
-                    //- Return reference to the sub-models dictionary
-                inline const dictionary& subModelProperties() const;
-
-
-            // Cloud data
-
-                //- Return reference to the random object
-                inline cachedRandom& rndGen();
-
-                //- Return the cell length scale
-                inline const scalarField& cellLengthScale() const;
-
-
-            // References to the carrier gas fields
-
-                //- Return carrier gas velocity
-                inline const volVectorField& U() const;
-
-                //- Return carrier gas density
-                inline const volScalarField& rho() const;
-
-                //- Return carrier gas dynamic viscosity
-                inline const volScalarField& mu() const;
-	
-		//- added by Patrick
-		inline const volScalarField& T() const;
-		inline const volScalarField& concSource() const;
-		inline const volVectorField& gradT() const;
-            // Environmental properties
-
-                //- Gravity
-                inline const dimensionedVector& g() const;
-
-                //- Return const-access to the ambient pressure
-                inline scalar pAmbient() const;
-
-                //- Return reference to the ambient pressure
-                inline scalar& pAmbient();
-
-
 	    //- Access to xmlSampler methods
 	    inline sampleType& xmlSampler();
-
-
-            // Sources
-
-                // Momentum
-
-                    //- Return reference to momentum source
-                    inline DimensionedField<vector, volMesh>& UTrans();
-
-                    //- Return const reference to momentum source
-                    inline const DimensionedField<vector, volMesh>&
-                        UTrans() const;
-			
-                    inline DimensionedField<scalar, volMesh>& TTrans();
-
-                
-                    inline const DimensionedField<scalar, volMesh>&
-                        TTrans() const;
-                    
-                    inline DimensionedField<scalar, volMesh>& nParticleTrans();
-
-                
-                    inline const DimensionedField<scalar, volMesh>&
-                        nParticleTrans() const;	
-                    
-                    inline DimensionedField<scalar, volMesh>& rhopTrans();
-
-                
-                    inline const DimensionedField<scalar, volMesh>&
-                        rhopTrans() const;	
-			
-                    
-                    	
-			
-			
-                   
-			
-		    
-		   
-         
-                    			
-                     //- Return coefficient for carrier phase U equation
-                    inline DimensionedField<scalar, volMesh>& UCoeff();
-
-                    //- Return const coefficient for carrier phase U equation
-                    inline const DimensionedField<scalar, volMesh>&
-                        UCoeff() const;
-
-                    //- Return tmp momentum source term
-                    inline tmp<fvVectorMatrix> SU(volVectorField& U) const;
-
-                    // Temperatur von Partikeln auf Eulerfeld
-                    inline const tmp<volScalarField> ST() const;
-                    // Anzalh von Partikeln auf Eulerfeld
-                    inline const tmp<volScalarField> SN() const;		    
-                    // Dichte von Partikeln auf Eulerfeld		    
-		    inline const tmp<volScalarField> Srhop() const; 
-		    
-
-
-                    
-		    
-        // Check
-
-            //- Total number of parcels
-            inline label nParcels() const;
-
-            //- Total mass in system
-            inline scalar massInSystem() const;
-
-            //- Total linear momentum of the system
-            inline vector linearMomentumOfSystem() const;
-
-            //- Total linear kinetic energy in the system
-            inline scalar linearKineticEnergyOfSystem() const;
-
-            //- Total rotational kinetic energy in the system
-            inline scalar rotationalKineticEnergyOfSystem() const;
-
-            //- Penetration for fraction [0-1] of the current total mass
-            inline scalar penetration(const scalar fraction) const;
-
-            //- Mean diameter Dij
-            inline scalar Dij(const label i, const label j) const;
-
-            //- Max diameter
-            inline scalar Dmax() const;
-
-
-            // Fields
-
-                //- Return the particle volume fraction field
-                //  Note: for particles belonging to this cloud only
-                inline const tmp<volScalarField> theta() const;
-
-                //- Return the particle mass fraction field
-                //  Note: for particles belonging to this cloud only
-                inline const tmp<volScalarField> alpha() const;
-
-                //- Return the particle effective density field
-                //  Note: for particles belonging to this cloud only
-                inline const tmp<volScalarField> rhoEff() const;
-
-
-        // Cloud evolution functions
-
-
-            //- Check parcel properties
-            void checkParcelProperties
-            (
-                parcelType& parcel,
-                const scalar lagrangianDt,
-                const bool fullyDescribed
-            );
 
             //- Store the current cloud state
             void storeState();

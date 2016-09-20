@@ -1,0 +1,154 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       dictionary;
+    location    "constant";
+    object      SprayCloudProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+solution
+{
+  active          true;
+  coupled         off;
+  transient       yes;
+  cellValueSourceCorrection off;
+  
+  sourceTerms
+    {
+      schemes
+        {
+	  
+        }
+    }
+  
+  interpolationSchemes
+    {
+      rho             cell;
+      U               cellPoint;
+      mut             cell;
+      thermo:mu       cell;
+      concSource      cell;
+      gradT	      cell;      
+      T               cell;
+      Cp              cell;
+      p               cell;
+    }
+  
+  integrationSchemes
+    {
+      U               Euler;
+    }
+}
+
+
+constantProperties
+{
+  // place holders for later implementations 
+  T0              300;
+  youngsModulus   1e9;
+  poissonsRatio   0.35;
+  Cy              2; 
+  rho0            7874.0;     
+}
+
+subModels
+{
+  particleForces
+    { 
+    }
+    injectionModels
+    {
+        //patchInjection		//patchInjection model
+        //{
+        //    type            patchInjection;
+	//    massFlowRate    0.0;    		//Place holder!
+        //    massTotal       0.0;
+        //    parcelBasisType fixed;
+	//    patchName	    inlet;
+	//    nParticle	    1;	    		//Place holder!    
+        //    SOI             0.03;   		//Start of injection (start of streamline generation)
+	//    parcelsPerSecond 1e+4;   
+	//    flowRateProfile constant 1;		//Ramp
+	//    duration        2e-4;   		//Duration of injection (injected paricle = duration * parcelsPerSecound + 1)
+        //    U0              ( 0 0 2.0 );     	//Should be inlet velocity, but will be replaced automatically 
+        //    sizeDistribution
+        //    {
+        //        //Place holder for later implementation
+        //        type        fixedValue;
+        //        fixedValueDistribution
+        //        {
+        //            value   5.0e-10;
+        //        }
+        //    }
+        //}
+        manualInjection		//manualInjection model
+        {
+            type            manualInjection;	//Injection model type
+            massTotal       0.0;		//Place holder!
+            parcelBasisType fixed;	
+	    nParticle	    1;	    		//Place holder!    
+            SOI             0.03;   		//Start of injection (start of streamline generation)
+            positionsFile    "startingPoints";
+            U0              ( 0 0 2.0 );     	//Should be inlet velocity, but will be replaced automatically 
+            sizeDistribution
+            {
+                //Place holder for later implementation
+                type        fixedValue;
+                fixedValueDistribution
+                {
+                    value   5.0e-10;
+                }
+            }
+        }  
+ 
+    }
+
+    
+    
+    
+  dispersionModel none;
+  
+  patchInteractionModel standardWallInteraction;
+  
+  heatTransferModel none;
+   
+  phaseChangeModel none;
+  
+  surfaceFilmModel none;
+  
+  atomizationModel none;
+  
+  breakupModel     none;
+    
+  collisionModel none;
+  
+  radiation       off;
+  
+  standardWallInteractionCoeffs
+  {
+      type            rebound;
+  } 
+ 
+}
+
+sampling		//Additional sub lib for XML-output
+{
+   nTracks	3;	//Number of streamlines (must be at least equal to the numer of released paricles)
+}
+
+cloudFunctions
+{
+}
+
+// ************************************************************************* //
+
